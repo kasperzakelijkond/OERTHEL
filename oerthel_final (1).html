@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OERTHEL — Espresso in Blik | Volwassen Energydrink Zonder Suiker</title>
+<meta name="description" content="OERTHEL is de eerste pure espresso in blik van Nederland. 200mg cafeïne. Zero suiker. Zero zoetstoffen. Gemaakt van 100% Arabica cold brew. Voor wie echt wakker wil worden.">
+<meta name="keywords" content="espresso in blik, energydrink voor volwassenen, cold brew koffie blik, koffie zonder suiker, OERTHEL, functionele koffie, focus drank">
+<link rel="canonical" href="https://oerthel.nl/">
+<!-- Open Graph -->
+<meta property="og:title" content="OERTHEL — Espresso in Blik. Geen Suiker. Geen Troep.">
+<meta property="og:description" content="200mg cafeïne. 100% Arabica cold brew. Zero suiker. De eerste volwassen energydrink van Nederland.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://oerthel.nl/">
+<meta property="og:image" content="https://oerthel.nl/images/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800;900&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #080808;
+  --near-black: #0f0f0f;
+  --dark: #161616;
+  --card-bg: #111111;
+  --white: #f5f5f0;
+  --off-white: #d8d8d2;
+  --muted: #888880;
+  --red: #c0392b;
+  --red-bright: #e74c3c;
+  --gold: #b8965a;
+  --gold-light: #d4aa6a;
+  --font-display: 'Manrope', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-display);
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3 { font-weight: 900; letter-spacing: -0.03em; line-height: 1.05; }
+p { font-weight: 300; }
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+/* ===== NOISE OVERLAY ===== */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.6;
+}
+
+/* ===== NAV ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 24px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(8,8,8,0.9) 0%, transparent 100%);
+  backdrop-filter: blur(0px);
+  transition: all 0.4s var(--ease);
+}
+
+nav.scrolled {
+  background: rgba(8,8,8,0.95);
+  backdrop-filter: blur(20px);
+  padding: 16px 48px;
+  border-bottom: 1px solid rgba(184,150,90,0.15);
+}
+
+.nav-logo {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.nav-cta {
+  padding: 10px 28px;
+  background: transparent;
+  border: 1px solid rgba(184,150,90,0.6);
+  color: var(--gold-light);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-cta:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--black);
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('hero.png'); /* ← Zet jouw afbeelding in dezelfde map en noem het hero.jpg, of pas dit pad aan */
+  background-size: cover;
+  background-position: center 40%;
+  transform: scale(1.08);
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(8,8,8,0.88) 0%,
+    rgba(8,8,8,0.6) 40%,
+    rgba(8,8,8,0.4) 70%,
+    rgba(8,8,8,0.75) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+  padding-top: 80px;
+}
+
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s var(--ease-out) 0.3s forwards;
+}
+
+.hero-label::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-title {
+  font-size: clamp(52px, 8vw, 110px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin-bottom: 32px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.9s var(--ease-out) 0.5s forwards;
+}
+
+.hero-title span {
+  color: var(--gold);
+  font-style: italic;
+  font-family: var(--font-serif);
+}
+
+.hero-sub {
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 300;
+  color: var(--off-white);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s var(--ease-out) 0.7s forwards;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s var(--ease-out) 0.9s forwards;
+}
+
+.btn-primary {
+  padding: 18px 48px;
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: translateX(-100%);
+  transition: transform 0.4s var(--ease);
+}
+
+.btn-primary:hover::before { transform: translateX(0); }
+.btn-primary span { position: relative; z-index: 1; }
+
+.hero-counter-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.hero-counter-preview strong {
+  color: var(--red-bright);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeIn 1s var(--ease) 1.5s forwards;
+}
+
+.hero-scroll span {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+/* ===== URGENCY BANNER ===== */
+.urgency-banner {
+  background: var(--red);
+  padding: 13px 0;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.urgency-track {
+  display: inline-flex;
+  animation: tickerScroll 32s linear infinite;
+  will-change: transform;
+}
+
+.urgency-track:hover {
+  animation-play-state: paused;
+}
+
+.urgency-text {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 0 60px;
+}
+
+.urgency-text .dot {
+  color: rgba(255,255,255,0.5);
+  margin: 0 8px;
+}
+
+@keyframes tickerScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ===== COUNTER SECTION ===== */
+.counter-section {
+  padding: 100px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.counter-left .section-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.counter-left .section-tag::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.counter-left h2 {
+  font-size: clamp(36px, 4vw, 54px);
+  margin-bottom: 24px;
+}
+
+.counter-left p {
+  font-size: 17px;
+  color: var(--off-white);
+  line-height: 1.8;
+  max-width: 420px;
+}
+
+.spots-display {
+  background: var(--card-bg);
+  border: 1px solid rgba(184,150,90,0.2);
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.spots-display::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; height: 2px;
+  background: linear-gradient(to right, var(--gold), transparent);
+}
+
+.spots-number {
+  font-size: clamp(72px, 8vw, 120px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: var(--white);
+  display: block;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.3s var(--ease);
+}
+
+.spots-number.pulse {
+  animation: numberPulse 0.4s var(--ease);
+}
+
+.spots-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 8px;
+  display: block;
+}
+
+.spots-bar {
+  margin-top: 32px;
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.spots-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--gold), var(--red));
+  transition: width 1.5s var(--ease-out);
+  width: 0%;
+}
+
+.spots-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+/* ===== STORY SECTION ===== */
+.story-section {
+  padding: 120px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.story-header {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.story-header .section-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.story-header h2 {
+  font-size: clamp(40px, 5vw, 72px);
+  max-width: 700px;
+  margin: 0 auto 24px;
+}
+
+.story-header p {
+  font-size: 18px;
+  color: var(--off-white);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+.story-block {
+  padding: 64px 56px;
+  background: var(--card-bg);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s var(--ease-out);
+}
+
+.story-block.visible { opacity: 1; transform: translateY(0); }
+
+.story-block::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 20%, rgba(184,150,90,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.story-block-number {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.story-block h3 {
+  font-size: clamp(24px, 2.5vw, 36px);
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.15;
+}
+
+.story-block p {
+  font-size: 15px;
+  color: var(--off-white);
+  line-height: 1.85;
+}
+
+.story-block-img {
+  grid-column: span 2;
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.story-block-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+
+.story-block-img:hover img { transform: scale(1.04); }
+
+.story-block-img .img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(8,8,8,0.7) 0%, transparent 50%, rgba(8,8,8,0.7) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.story-quote {
+  font-size: clamp(24px, 3vw, 44px);
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: -0.02em;
+  max-width: 700px;
+  text-shadow: 0 2px 40px rgba(0,0,0,0.8);
+}
+
+/* ===== PRODUCT SECTION ===== */
+.product-section {
+  padding: 120px 48px;
+  background: var(--near-black);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(ellipse, rgba(184,150,90,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.product-section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.product-header .section-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.product-header h2 {
+  font-size: clamp(36px, 4.5vw, 64px);
+  margin-bottom: 16px;
+}
+
+.product-header p {
+  font-size: 17px;
+  color: var(--muted);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.product-card {
+  background: var(--dark);
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 56px 48px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.3s var(--ease), transform 0.4s var(--ease);
+  transform-style: preserve-3d;
+  min-height: 600px;
+}
+
+/* Text content sits above image */
+.product-card > *:not(.product-img-wrap) {
+  position: relative;
+  z-index: 2;
+}
+
+/* Dark gradient overlay so text stays readable */
+.product-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.product-card.black::before {
+  background: linear-gradient(135deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 100%);
+}
+
+.product-card.white::before {
+  background: linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.65) 50%, rgba(10,10,10,0.35) 100%);
+}
+
+.product-card:hover {
+  border-color: rgba(184,150,90,0.3);
+  transform: translateY(-4px);
+}
+
+.product-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(ellipse at var(--mx, 50%) var(--my, 50%), rgba(184,150,90,0.12) 0%, transparent 60%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+}
+
+.product-card:hover::after { opacity: 1; }
+
+.product-card.black {
+  background: #050505;
+}
+
+.product-card.white {
+  background: #0a0a0a;
+}
+
+.product-system {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.product-name {
+  font-size: clamp(36px, 4vw, 64px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.product-type {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+.product-img-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.product-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.product-spec {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--off-white);
+}
+
+.product-spec::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.product-tagline {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+/* ===== MANIFESTO SECTION ===== */
+.manifesto-section {
+  padding: 160px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--black);
+}
+
+.manifesto-section::before {
+  content: 'OERTHEL';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(120px, 18vw, 260px);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: rgba(255,255,255,0.02);
+  pointer-events: none;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.manifesto-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.manifesto-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.manifesto-line {
+  font-size: clamp(32px, 4.5vw, 64px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.7s var(--ease-out);
+  padding: 8px 0;
+}
+
+.manifesto-line.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.manifesto-line.gold { color: var(--gold); font-style: italic; font-family: var(--font-serif); }
+.manifesto-line.small {
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 300;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  font-style: normal;
+  font-family: var(--font-display);
+}
+
+/* ===== FORM SECTION ===== */
+.form-section {
+  padding: 120px 48px;
+  background: var(--near-black);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-section::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.form-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.form-header {
+  margin-bottom: 64px;
+}
+
+.form-header .section-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.form-header h2 {
+  font-size: clamp(36px, 5vw, 64px);
+  margin-bottom: 20px;
+}
+
+.form-header p {
+  font-size: 16px;
+  color: var(--off-white);
+  line-height: 1.8;
+}
+
+.form-spots-reminder {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: rgba(192,57,43,0.12);
+  border: 1px solid rgba(192,57,43,0.3);
+  margin-bottom: 48px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.form-spots-reminder .dot {
+  width: 6px; height: 6px;
+  background: var(--red-bright);
+  border-radius: 50%;
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+input, textarea {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 400;
+  padding: 18px 24px;
+  outline: none;
+  transition: all 0.3s var(--ease);
+  width: 100%;
+  resize: none;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--gold);
+  background: rgba(184,150,90,0.06);
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(255,255,255,0.2);
+  font-weight: 300;
+}
+
+textarea { min-height: 120px; }
+
+.btn-submit {
+  padding: 22px 56px;
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.btn-submit::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease);
+}
+
+.btn-submit:hover::before { transform: scaleX(1); }
+.btn-submit span { position: relative; z-index: 1; }
+
+.btn-submit.loading { pointer-events: none; opacity: 0.7; }
+
+.form-fine-print {
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ===== SUCCESS BANNER (groene balk bovenaan) ===== */
+#successBanner {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 9998;
+  background: #1a5c35;
+  border-bottom: 2px solid #27ae60;
+  padding: 0 48px;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.5s var(--ease-out), opacity 0.5s var(--ease-out);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+#successBanner.show {
+  height: 68px;
+  opacity: 1;
+}
+
+.success-banner-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: #27ae60;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-banner-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: #fff;
+  stroke-width: 2.5;
+}
+
+.success-banner-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.4;
+}
+
+.success-banner-text strong {
+  font-weight: 800;
+  color: #7fffb2;
+}
+
+.success-banner-close {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  padding: 4px 8px;
+  transition: color 0.2s;
+}
+
+.success-banner-close:hover { color: #fff; }
+
+@media (max-width: 768px) {
+  #successBanner { padding: 0 20px; }
+  #successBanner.show { height: 80px; }
+  .success-banner-text { font-size: 13px; }
+}
+
+/* ===== SUCCESS STATE (inline, na formulier) ===== */
+.success-state {
+  display: none;
+  text-align: center;
+  padding: 80px 48px;
+  animation: fadeIn 0.6s var(--ease-out);
+}
+
+.success-state.show { display: block; }
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #27ae60;
+  border-radius: 50%;
+  margin: 0 auto 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: scaleIn 0.5s var(--ease-out);
+  background: rgba(39,174,96,0.08);
+}
+
+.success-icon svg { width: 32px; height: 32px; stroke: #27ae60; }
+
+.success-state h3 {
+  font-size: clamp(28px, 3vw, 44px);
+  margin-bottom: 20px;
+  color: var(--white);
+}
+
+.success-state p { font-size: 17px; color: var(--off-white); line-height: 1.8; }
+
+/* ===== FOOTER ===== */
+footer {
+  padding: 60px 48px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-logo {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.footer-line {
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scrollLine {
+  0%, 100% { transform: scaleY(1); opacity: 1; }
+  50% { transform: scaleY(0.3); opacity: 0.3; }
+}
+
+@keyframes numberPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); color: var(--red-bright); }
+  100% { transform: scale(1); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  nav { padding: 20px 24px; }
+  nav.scrolled { padding: 14px 24px; }
+  .nav-cta { display: none; }
+  
+  .hero-content { padding: 0 24px; padding-top: 80px; }
+  
+  .counter-section { 
+    grid-template-columns: 1fr; 
+    gap: 48px;
+    padding: 80px 24px;
+  }
+  
+  .story-section { padding: 80px 24px; }
+  .story-grid { grid-template-columns: 1fr; }
+  .story-block-img { grid-column: span 1; height: 300px; }
+  
+  .product-section { padding: 80px 24px; }
+  .products-grid { grid-template-columns: 1fr; }
+  
+  .manifesto-section { padding: 100px 24px; }
+  
+  .form-section { padding: 80px 24px; }
+  
+  footer { padding: 40px 24px; flex-direction: column; text-align: center; }
+  
+  .spots-display { padding: 32px; }
+}
+
+/* ===== PRODUCT IMAGE HOVER SWAP ===== */
+.product-img-front,
+.product-img-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-img-back {
+  opacity: 0;
+}
+
+.product-card:hover .product-img-front {
+  opacity: 0;
+}
+
+/* Zoom white front image to match black can visual size */
+.product-card.white .product-img-front {
+  object-position: center;
+  transform: scale(1.10);
+  transform-origin: center center;
+
+}
+
+.product-card:hover .product-img-back {
+  opacity: 1;
+}
+
+/* Hide specs & tagline on hover — clean canvas, just the can */
+.product-specs,
+.product-tagline {
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-card:hover .product-specs,
+.product-card:hover .product-tagline {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+}
+</style>
+</head>
+<body>
+
+<!-- SUCCESS BANNER -->
+<div id="successBanner" role="alert" aria-live="polite">
+  <div class="success-banner-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+  </div>
+  <div class="success-banner-text">
+    <strong>Plek geclaimd!</strong> Je ontvangt een bevestigingsmail zodra OERTHEL beschikbaar is. Welkom bij de eersten.
+  </div>
+  <button class="success-banner-close" id="closeBanner" aria-label="Sluit melding">&times;</button>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-logo">OERTHEL</div>
+  <a href="#form" class="nav-cta">Claim jouw plek</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-content">
+    <div class="hero-label">Espresso in blik — Eerste lancering Nederland</div>
+    <h1 class="hero-title">
+      De eerste<br><span>espresso in blik</span><br>zonder suiker.
+    </h1>
+    <p class="hero-sub">OERTHEL is de eerste functionele espresso in blik van Nederland. 200mg cafeïne uit 100% Arabica cold brew. Zero suiker. Zero zoetstoffen. Niets wat er niet in hoort.</p>
+    <div class="hero-actions">
+      <a href="#form" class="btn-primary"><span>Claim jouw plek — Nog <span id="heroSpots">183</span> beschikbaar</span></a>
+      <div class="hero-counter-preview">
+        <strong id="heroSpotsDisplay">183</strong> van de 250 plekken beschikbaar
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- URGENCY BANNER -->
+<div class="urgency-banner">
+  <div class="urgency-track">
+    <span class="urgency-text">⚡ OERTHEL espresso in blik — Eerste 250 aanmelders krijgen exclusieve toegang <span class="dot">✦</span> Zero suiker. 200mg cafeïne. 100% Arabica cold brew. <span class="dot">✦</span> Geen herdruk. Geen tweede kans. <span class="dot">✦</span> ⚡ OERTHEL espresso in blik — Eerste 250 aanmelders krijgen exclusieve toegang <span class="dot">✦</span> Zero suiker. 200mg cafeïne. 100% Arabica cold brew. <span class="dot">✦</span> Geen herdruk. Geen tweede kans. <span class="dot">✦</span> ⚡ OERTHEL espresso in blik — Eerste 250 aanmelders krijgen exclusieve toegang <span class="dot">✦</span> Zero suiker. 200mg cafeïne. 100% Arabica cold brew. <span class="dot">✦</span> Geen herdruk. Geen tweede kans. <span class="dot">✦</span></span>
+    <span class="urgency-text">⚡ OERTHEL espresso in blik — Eerste 250 aanmelders krijgen exclusieve toegang <span class="dot">✦</span> Zero suiker. 200mg cafeïne. 100% Arabica cold brew. <span class="dot">✦</span> Geen herdruk. Geen tweede kans. <span class="dot">✦</span> ⚡ OERTHEL espresso in blik — Eerste 250 aanmelders krijgen exclusieve toegang <span class="dot">✦</span> Zero suiker. 200mg cafeïne. 100% Arabica cold brew. <span class="dot">✦</span> Geen herdruk. Geen tweede kans. <span class="dot">✦</span> ⚡ OERTHEL espresso in blik — Eerste 250 aanmelders krijgen exclusieve toegang <span class="dot">✦</span> Zero suiker. 200mg cafeïne. 100% Arabica cold brew. <span class="dot">✦</span> Geen herdruk. Geen tweede kans. <span class="dot">✦</span></span>
+  </div>
+</div>
+
+<!-- COUNTER SECTION -->
+<section style="background: var(--near-black); padding: 0 0 0 0;">
+  <div class="counter-section">
+    <div class="counter-left fade-in-el">
+      <div class="section-tag">Beschikbaarheid</div>
+      <h2>OERTHEL is geen massaproduct.<br>En dat blijft zo.</h2>
+      <p>De eerste 250 mensen die zich aanmelden krijgen als eerste toegang tot OERTHEL: de pure espresso in blik zonder suiker. Daarna bepalen wij wanneer, en of, er meer komt. Geen belofte van beschikbaarheid. Geen garantie op een tweede kans.</p>
+    </div>
+    <div class="spots-display fade-in-el">
+      <span class="spots-number" id="spotsNumber">183</span>
+      <span class="spots-label">plekken beschikbaar</span>
+      <div class="spots-bar">
+        <div class="spots-fill" id="spotsFill"></div>
+      </div>
+      <div class="spots-meta">
+        <span id="spotsLeftLabel">183 beschikbaar</span>
+        <span>250 totaal</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY SECTION -->
+<section class="story-section">
+  <div class="story-header fade-in-el">
+    <div class="section-tag">Oorsprong</div>
+    <h2>Waarom bestaat<br>OERTHEL?</h2>
+    <p>Energydrinks zijn ontworpen voor tieners. Koffie is voor mensen die resultaten willen. OERTHEL is de eerste espresso in blik die dat verschil serieus neemt: functionele koffie zonder compromis.</p>
+  </div>
+
+  <div class="story-grid">
+    <div class="story-block fade-in-el">
+      <div class="story-block-number">01 — Het probleem</div>
+      <h3>Energydrinks zijn ontworpen voor kinderen. Niet voor volwassenen.</h3>
+      <p>De gemiddelde energydrink bevat 27 gram suiker, kunstmatige smaken en synthetische cafeïne. Ze zijn geoptimaliseerd voor smaak, niet voor prestatie. OERTHEL is anders: pure cold brew espresso in blik, gebouwd op 200mg natuurlijk cafeïne uit 100% Arabica bonen. Geen suiker. Geen zoetstoffen. Geen compromis.</p>
+    </div>
+    <div class="story-block fade-in-el" style="transition-delay:0.15s">
+      <div class="story-block-number">02 — De filosofie</div>
+      <h3>Functionele koffie werkt.<br>Smaakjes werken niet.</h3>
+      <p>Wij geloven dat de beste focus drank geen tientallen varianten nodig heeft. Geen tropical punch. Geen blueberry burst. Één ding, gedaan op de hoogste manier: pure espresso in blik, 18 uur cold brew, van Indonesische Arabica bonen. Dat is wat werkt. De rest is marketing voor tieners.</p>
+    </div>
+    
+    </div>
+
+    <div class="story-block fade-in-el">
+      <div class="story-block-number">03 — De ingrediënten</div>
+      <h3>Espresso in blik.<br>200mg cafeïne. Niets meer.</h3>
+      <p>OERTHEL bestaat uit één ding: 100% Arabica cold brew espresso. Indonesische bonen, medium dark roast, 18 uur koud gebrouwen. 200mg natuurlijk cafeïne per blik. Zero suiker. Zero zoetstoffen. Zero additieven. Meer heeft een functionele koffie niet nodig, en minder ook niet.</p>
+    </div>
+    <div class="story-block fade-in-el" style="transition-delay:0.15s">
+      <div class="story-block-number">04 — De categorie</div>
+      <h3>OERTHEL is geen koffie.<br>OERTHEL is de volwassen energydrink.</h3>
+      <p>De markt voor functionele dranken groeit. Maar niemand pakt het serieus aan. Studenten drinken vaak Red Bull. Koffieketens zijn voor lunchers. OERTHEL is voor mensen die wakker willen worden, gefocust willen werken en niet hoeven te kiezen tussen smaak en prestatie. Espresso in blik, gemaakt voor volwassenen die resultaat willen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT SECTION -->
+<section class="product-section">
+  <div class="product-section-inner">
+    <div class="product-header fade-in-el">
+      <div class="section-tag">De Systemen</div>
+      <h2>Twee varianten.<br>Eén principe: FOCUS.</h2>
+      <p>OERTHEL BLACK: pure espresso in blik.
+ OERTHEL WHITE: espresso met melk. Allebei zonder suiker. Allebei 200mg cafeïne.</p>
+    </div>
+
+    <div class="products-grid">
+      <!-- SYSTEM 1 -->
+      <div class="product-card black fade-in-el" id="blackCard">
+        <div class="product-system">Systeem 01 — Pure Espresso</div>
+        <div class="product-name">BLACK</div>
+        <div class="product-type">Cold Brew Espresso in Blik — Zero Suiker</div>
+        
+        <div class="product-img-wrap">
+          <img src="oerthelblack.jpg" alt="OERTHEL BLACK - espresso in blik zonder suiker - voorkant" class="product-img product-img-front" id="blackImg">
+          <img src="trayof6black.png" alt="OERTHEL BLACK - cold brew espresso blik - achterkant" class="product-img product-img-back">
+        </div>
+
+        <div class="product-specs">
+          <div class="product-spec">200mg cafeïne uit 100% Arabica cold brew</div>
+          <div class="product-spec">Zero suiker — Zero zoetstoffen — Zero additieven</div>
+          <div class="product-spec">Indonesische bonen, medium dark roast</div>
+          <div class="product-spec">18 uur koud gebrouwen — maximale extractie</div>
+          <div class="product-spec">Chocolade — Noten — Aardse afdronk</div>
+        </div>
+
+        <p class="product-tagline">De puurste espresso in blik<br>die je in Nederland kunt kopen.</p>
+      </div>
+
+      <!-- SYSTEM 2 -->
+      <div class="product-card white fade-in-el" id="whiteCard" style="transition-delay:0.15s">
+        <div class="product-system">Systeem 02 — Espresso & Melk</div>
+        <div class="product-name">WHITE</div>
+        <div class="product-type">Cold Brew Espresso met Melk — Zero Suiker</div>
+
+        <div class="product-img-wrap">
+          <img src="oerthelwhite.jpg" alt="OERTHEL WHITE - espresso met melk in blik zonder suiker" class="product-img product-img-front" id="whiteImg">
+          <img src="trayof6white.png" alt="OERTHEL WHITE - cold brew espresso met melk blik" class="product-img product-img-back">
+        </div>
+
+        <div class="product-specs">
+          <div class="product-spec">200mg cafeïne — zelfde kracht als BLACK</div>
+          <div class="product-spec">Echte melk — geen plantaardige troep</div>
+          <div class="product-spec">Zero suiker — Zero zoetstoffen</div>
+          <div class="product-spec">Indonesische Arabica — medium dark roast</div>
+          <div class="product-spec">Romig — Krachtig — Geen concessies</div>
+        </div>
+
+        <p class="product-tagline">Espresso met melk.<br>Eindelijk zonder suiker.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO SECTION -->
+<section class="manifesto-section">
+  <div class="manifesto-inner">
+    <div class="manifesto-lines" id="manifestoLines">
+      <div class="manifesto-line">Energie</div>
+      <div class="manifesto-line gold">is geen snoep.</div>
+      <div class="manifesto-line small">200mg cafeïne. Geen suiker. Geen zoetstoffen. Alleen espresso in blik.</div>
+      <div class="manifesto-line">Focus</div>
+      <div class="manifesto-line gold">verdien je. Je koopt het niet.</div>
+      <div class="manifesto-line small">OERTHEL is de functionele koffie voor mensen die resultaat willen, geen smaakjes.</div>
+      <div class="manifesto-line" style="margin-top:40px">Kies espresso.<br>Niet suiker.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ SECTION — SEO / AI Search optimalisatie -->
+<section class="faq-section" id="faq" style="padding: 100px 48px; background: var(--near-black);">
+  <div style="max-width: 800px; margin: 0 auto;">
+    <div style="text-align:center; margin-bottom: 64px;" class="fade-in-el">
+      <div class="section-tag" style="font-size:11px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;">Veelgestelde vragen</div>
+      <h2 style="font-size:clamp(36px,4.5vw,56px);">Alles over OERTHEL<br>espresso in blik</h2>
+    </div>
+
+    <div class="faq-item fade-in-el" style="border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 0;">
+      <h3 style="font-size: 20px; margin-bottom: 16px; font-weight: 800;">Wat is OERTHEL?</h3>
+      <p style="color: var(--off-white); line-height: 1.8;">OERTHEL is de eerste pure espresso in blik van Nederland. Gemaakt van 100% Arabica cold brew, 18 uur koud gebrouwen. 200mg cafeïne per blik. Zero suiker. Zero zoetstoffen. Bedoeld als volwassen alternatief voor energydrinks.</p>
+    </div>
+
+    <div class="faq-item fade-in-el" style="border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 0;">
+      <h3 style="font-size: 20px; margin-bottom: 16px; font-weight: 800;">Hoeveel cafeïne zit er in een blik OERTHEL?</h3>
+      <p style="color: var(--off-white); line-height: 1.8;">Elk blik OERTHEL bevat 200mg cafeïne, afkomstig van 100% Arabica cold brew espresso. Dit is vergelijkbaar met twee à drie reguliere espresso's, maar dan in blikvorm — zonder suiker en zonder synthetische additieven.</p>
+    </div>
+
+    <div class="faq-item fade-in-el" style="border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 0;">
+      <h3 style="font-size: 20px; margin-bottom: 16px; font-weight: 800;">Wat is het verschil tussen OERTHEL en een energydrink?</h3>
+      <p style="color: var(--off-white); line-height: 1.8;">Energydrinks bevatten gemiddeld 27g suiker, kunstmatige smaken en synthetische cafeïne. OERTHEL bevat alleen cold brew espresso van 100% Arabica bonen. Geen suiker. Geen zoetstoffen. Geen synthetische stimulantia. Puur natuurlijk cafeïne — voor mensen die focus willen, geen suikerpiek.</p>
+    </div>
+
+    <div class="faq-item fade-in-el" style="border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 0;">
+      <h3 style="font-size: 20px; margin-bottom: 16px; font-weight: 800;">Is OERTHEL suikervrij?</h3>
+      <p style="color: var(--off-white); line-height: 1.8;">Ja. Beide varianten — OERTHEL BLACK en OERTHEL WHITE — bevatten zero suiker en zero zoetstoffen. Geen stevia, geen erythritol, geen aspartaam. Alleen koffie.</p>
+    </div>
+
+    <div class="faq-item fade-in-el" style="border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 0;">
+      <h3 style="font-size: 20px; margin-bottom: 16px; font-weight: 800;">Wat is cold brew espresso?</h3>
+      <p style="color: var(--off-white); line-height: 1.8;">Cold brew espresso wordt 18 uur lang koud geëxtraheerd op lage temperatuur. Dit geeft een rijkere, minder zure smaak dan reguliere espresso, met behoud van alle natuurlijke cafeïne. OERTHEL gebruikt Indonesische Arabica bonen, medium dark roast, voor een diepe chocolade- en nootachtige smaak.</p>
+    </div>
+
+    <div class="faq-item fade-in-el" style="border-top: 1px solid rgba(255,255,255,0.08); padding: 32px 0;">
+      <h3 style="font-size: 20px; margin-bottom: 16px; font-weight: 800;">Waar kan ik OERTHEL kopen?</h3>
+      <p style="color: var(--off-white); line-height: 1.8;">OERTHEL is momenteel in pre-order fase. De eerste 250 aanmelders krijgen exclusieve vroege toegang. Meld je aan via dit formulier om als eerste bericht te ontvangen wanneer OERTHEL beschikbaar is.</p>
+    </div>
+
+    <div class="faq-item fade-in-el" style="border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 32px 0;">
+      <h3 style="font-size: 20px; margin-bottom: 16px; font-weight: 800;">Voor wie is OERTHEL bedoeld?</h3>
+      <p style="color: var(--off-white); line-height: 1.8;">OERTHEL is bedoeld voor volwassenen die bewust kiezen voor functionele koffie boven suikerrijke energydrinks. Professionals, atleten, creatieven — iedereen die focus en energie wil zonder de suikerpiek en suikerdip van reguliere energydrinks.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FORM SECTION -->
+<section class="form-section" id="form">
+  <div class="form-inner">
+    <div class="form-header fade-in-el">
+      <div class="section-tag">Pre-order — Eerste 250</div>
+      <h2>Meld je aan voor<br>de eerste espresso in blik<br>zonder suiker.</h2>
+      <p>OERTHEL lanceert binnenkort in Nederland. De eerste 250 aanmelders krijgen exclusieve toegang — eerder dan iedereen. Geen wachtrij achteraf. Geen tweede kans. Vul je gegevens in en claim jouw plek.</p>
+    </div>
+
+    <div class="form-spots-reminder">
+      <div class="dot"></div>
+      <span>Nog <strong id="formSpots">183</strong> van de 250 plekken beschikbaar — Vol = vol</span>
+    </div>
+
+    <div id="formWrap">
+      <form id="signupForm" action="https://formspree.io/f/xgojavrr" method="POST" novalidate>
+        <!-- Formspree metadata -->
+        <input type="hidden" name="_subject" value="Nieuwe OERTHEL Early Access Aanmelding">
+        <input type="hidden" name="brand" value="OERTHEL">
+        <input type="hidden" name="campaign" value="first-250-launch">
+        <!-- Honeypot anti-spam -->
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+        <div class="form-group">
+          <label for="nameInput">Naam</label>
+          <input type="text" id="nameInput" name="name" placeholder="Jouw volledige naam" required>
+        </div>
+
+        <div class="form-group">
+          <label for="emailInput">E-mailadres</label>
+          <input type="email" id="emailInput" name="email" placeholder="jij@domein.nl" required>
+        </div>
+
+        <div class="form-group">
+          <label for="motivationInput">Waarom kies jij voor echte espresso boven energydrinks? <span style="color:var(--muted);font-style:italic">(optioneel)</span></label>
+          <textarea id="motivationInput" name="motivation" placeholder="Eerlijk antwoord. Geen marketingtaal."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span id="submitText">Claim mijn plek bij de eerste 250</span>
+        </button>
+
+        <p class="form-fine-print">
+          Eén bevestigingsmail. Geen nieuwsbrief. Geen remarketing. Geen spam. Alleen OERTHEL wanneer het er is.
+        </p>
+      </form>
+    </div>
+
+    <div class="success-state" id="successState">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <h3>Plek geclaimd. Welkom bij de eersten.</h3>
+      <p>Je ontvangt bericht zodra OERTHEL beschikbaar is. Tot dan: stop met energydrinks. Begin met espresso in blik.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">OERTHEL</div>
+  <div class="footer-copy">© 2026 OERTHEL Beverages — Rotterdam, Nederland | Espresso in blik. Zero suiker.</div>
+  <div class="footer-line">200mg cafeïne. 100% Arabica. Niets meer.</div>
+</footer>
+
+<script>
+// ===== SPOTS COUNTER =====
+// Start getal — aanpasbaar
+let spotsLeft = 183;
+const totalSpots = 250;
+
+function updateSpots(num) {
+  const els = document.querySelectorAll('#spotsNumber, #heroSpots, #heroSpotsDisplay, #formSpots');
+  els.forEach(el => {
+    if (el.id === 'spotsNumber') {
+      el.classList.add('pulse');
+      setTimeout(() => el.classList.remove('pulse'), 400);
+    }
+    el.textContent = num;
+  });
+  
+  // Update progress bar — width = remaining / total
+  const fill = document.getElementById('spotsFill');
+  if (fill) {
+    const pct = (num / totalSpots) * 100;
+    fill.style.width = pct + '%';
+  }
+}
+
+// ===== COUNTUP ANIMATION =====
+function animateCountUp(el, from, to, duration) {
+  const start = performance.now();
+  const diff = to - from;
+  function step(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    // ease-out cubic
+    const ease = 1 - Math.pow(1 - progress, 3);
+    const current = Math.round(from + diff * ease);
+    el.textContent = current;
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = to;
+  }
+  requestAnimationFrame(step);
+}
+
+// Animate spots counter when it enters view
+let counterAnimated = false;
+const spotsNumberEl = document.getElementById('spotsNumber');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !counterAnimated) {
+      counterAnimated = true;
+      animateCountUp(spotsNumberEl, 250, spotsLeft, 1800);
+      // Animate bar from 100% down to remaining %
+      const fillEl = document.getElementById('spotsFill');
+      if (fillEl) {
+        fillEl.style.width = '100%';
+        setTimeout(() => {
+          fillEl.style.transition = 'width 1.5s cubic-bezier(0.16, 1, 0.3, 1)';
+          fillEl.style.width = (spotsLeft / totalSpots * 100).toFixed(1) + '%';
+        }, 100);
+      }
+      // Also animate progress bar (shows spots REMAINING, right to left feel)
+      setTimeout(() => {
+        const fill = document.getElementById('spotsFill');
+        const pct = (spotsLeft / totalSpots * 100).toFixed(1);
+        fill.style.width = pct + '%';
+      }, 200);
+    }
+  });
+}, { threshold: 0.4 });
+if (spotsNumberEl) counterObserver.observe(spotsNumberEl);
+
+// Init
+window.addEventListener('load', () => {
+  // Hero counter set immediately (no animation needed there)
+  document.getElementById('heroSpots').textContent = spotsLeft;
+  if (document.getElementById('heroSpotsDisplay')) document.getElementById('heroSpotsDisplay').textContent = spotsLeft;
+  document.getElementById('formSpots').textContent = spotsLeft;
+  // spotsNumber stays at 250 until scrolled into view
+  spotsNumberEl.textContent = '250';
+  
+  // Simulate real-time drops (voor demo effect — verwijder in productie)
+  // Uncomment om live druppels te simuleren:
+  /*
+  function randomDrop() {
+    const delay = Math.random() * 30000 + 20000; // 20-50 sec
+    setTimeout(() => {
+      if (spotsLeft > 10) {
+        spotsLeft -= 1;
+        updateSpots(spotsLeft);
+        randomDrop();
+      }
+    }, delay);
+  }
+  randomDrop();
+  */
+});
+
+// ===== PARALLAX HERO =====
+const heroBg = document.getElementById('heroBg');
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  if (heroBg && scrolled < window.innerHeight) {
+    heroBg.style.transform = `scale(1.08) translateY(${scrolled * 0.3}px)`;
+  }
+}, { passive: true });
+
+// ===== NAV SCROLL =====
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// ===== INTERSECTION OBSERVER (FADE-IN) =====
+const fadeEls = document.querySelectorAll('.fade-in-el, .story-block, .manifesto-line');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+fadeEls.forEach(el => observer.observe(el));
+
+// ===== PRODUCT CARD GLOW EFFECT =====
+const productCards = document.querySelectorAll('.product-card');
+productCards.forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const mx = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+    const my = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
+    card.style.setProperty('--mx', mx + '%');
+    card.style.setProperty('--my', my + '%');
+  });
+});
+
+// ===== FORM SUBMIT (Formspree) =====
+const form = document.getElementById('signupForm');
+const submitBtn = document.getElementById('submitBtn');
+const submitText = document.getElementById('submitText');
+const successState = document.getElementById('successState');
+const formWrap = document.getElementById('formWrap');
+const successBanner = document.getElementById('successBanner');
+const closeBanner = document.getElementById('closeBanner');
+
+// Close banner on click
+closeBanner.addEventListener('click', () => {
+  successBanner.classList.remove('show');
+});
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById('nameInput').value.trim();
+  const email = document.getElementById('emailInput').value.trim();
+
+  // Validatie
+  if (!name || !email) {
+    const empty = !name ? document.getElementById('nameInput') : document.getElementById('emailInput');
+    empty.style.borderColor = 'var(--red-bright)';
+    empty.focus();
+    setTimeout(() => empty.style.borderColor = '', 2000);
+    return;
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    const emailEl = document.getElementById('emailInput');
+    emailEl.style.borderColor = 'var(--red-bright)';
+    emailEl.focus();
+    setTimeout(() => emailEl.style.borderColor = '', 2000);
+    return;
+  }
+
+  // Loading state
+  submitBtn.classList.add('loading');
+  submitText.textContent = 'Aanmelden...';
+
+  try {
+    const response = await fetch('https://formspree.io/f/xgojavrr', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    });
+
+    if (response.ok) {
+      form.reset();
+
+      // Toon inline succes
+      formWrap.style.opacity = '0';
+      formWrap.style.transform = 'translateY(-20px)';
+      formWrap.style.transition = 'all 0.4s ease';
+
+      setTimeout(() => {
+        formWrap.style.display = 'none';
+        successState.classList.add('show');
+      }, 400);
+
+      // Toon groene balk bovenaan — bezoeker blijft op pagina
+      successBanner.classList.add('show');
+
+      // Scroll naar boven zodat balk zichtbaar is
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Verberg balk automatisch na 8 seconden
+      setTimeout(() => successBanner.classList.remove('show'), 8000);
+
+      // Update spots
+      if (spotsLeft > 0) {
+        spotsLeft -= 1;
+        updateSpots(spotsLeft);
+      }
+    } else {
+      alert('Er ging iets mis bij het versturen. Probeer het opnieuw.');
+      submitBtn.classList.remove('loading');
+      submitText.textContent = 'Claim mijn plek bij de eerste 250';
+    }
+  } catch (error) {
+    alert('Verbindingsfout. Controleer je internetverbinding en probeer opnieuw.');
+    submitBtn.classList.remove('loading');
+    submitText.textContent = 'Claim mijn plek bij de eerste 250';
+  }
+});
+
+// ===== SMOOTH SCROLL =====
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "OERTHEL",
+      "url": "https://oerthel.nl",
+      "logo": "https://oerthel.nl/images/logo.png",
+      "description": "OERTHEL maakt pure espresso in blik zonder suiker. Functionele koffie voor volwassenen die resultaat willen, geen smaakjes.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rotterdam",
+        "addressCountry": "NL"
+      },
+      "sameAs": [
+        "https://instagram.com/oerthel",
+        "https://linkedin.com/company/oerthel"
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "OERTHEL BLACK — Espresso in Blik",
+      "description": "Pure cold brew espresso in blik. 100% Arabica, 200mg cafeïne, zero suiker, zero zoetstoffen. 18 uur cold brew van Indonesische bonen.",
+      "brand": { "@type": "Brand", "name": "OERTHEL" },
+      "category": "Functionele koffie / Espresso in blik",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/LimitedAvailability",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wat is OERTHEL?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OERTHEL is een Nederlandse espresso in blik gemaakt van 100% Arabica cold brew. 200mg cafeïne per blik, zero suiker, zero zoetstoffen. Bedoeld als volwassen alternatief voor energydrinks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoeveel cafeïne zit er in OERTHEL?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Elk blik OERTHEL bevat 200mg cafeïne van 100% Arabica cold brew. Dat is meer dan een dubbele espresso, zonder suiker of synthetische toevoegingen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is OERTHEL suikervrij?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. OERTHEL bevat zero suiker en zero zoetstoffen. Alleen koffie. Niets meer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat is het verschil tussen OERTHEL en een energydrink?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Energydrinks bevatten suiker, kunstmatige smaken en synthetische cafeïne. OERTHEL bevat alleen cold brew espresso van 100% Arabica bonen. Geen suiker. Geen zoetstoffen. Geen synthetische stimulantia. Puur natuurlijk cafeïne uit koffie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Waar kan ik OERTHEL kopen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OERTHEL is momenteel beschikbaar via pre-order voor de eerste 250 aanmelders. Meld je aan via oerthel.nl om als eerste toegang te krijgen."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
